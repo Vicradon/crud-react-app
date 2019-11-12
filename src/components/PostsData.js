@@ -1,2 +1,0 @@
-const PostsData = [{heading: "My first reasonable React app", content: "Ok, so this react app is the first reasonable one I've ever built. I used both class and functional components.", date: "Sun Oct 13 2019", id: 1}];
-export default PostsData;

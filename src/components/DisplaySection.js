@@ -3,6 +3,7 @@ import React from "react";
 const Posts = ({ heading, content, date }) => {
   return (
     <div className="post-card">
+      <h3 className="article-heading" >{heading}</h3>
       <p className="date-written">date: {date}</p>
       <p className="write-up">{content}</p>
       <p className="actions">
@@ -15,15 +16,12 @@ const Posts = ({ heading, content, date }) => {
 
 
 const DisplaySection = ({ PostsData }) => {
-  // const localPostsArray = JSON.parse(localStorage.getItem('posts')) || [];
-  // const localPosts = localPostsArray.map(post => <Posts key = {post.id} heading = {post.heading} content = {post.content} date = {post.date} />)
-
   const postsComponents = PostsData.map(post => {
-    return <Posts 
-      key = {post.id} 
-      heading = {post.heading} 
-      content = {post.content} 
-      date = {post.date} 
+    return <Posts
+      key={post.id}
+      heading={post.heading}
+      content={post.content}
+      date={post.date}
     />
   })
 
