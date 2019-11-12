@@ -17,7 +17,7 @@ function InputBoxes({ prevID, addPost }) {
     name === 'heading' ?
       setHeading(value) :
       setContent(value);
-      
+
     setPost({
       heading: heading,
       content: content,
@@ -39,7 +39,7 @@ function InputBoxes({ prevID, addPost }) {
   }
 
   return (
-    <div className="InputBoxes">
+    <div className="input-boxes">
       <h3 className="component-header">Hello, you'd have to type stuff</h3>
       <input
         name="heading"
