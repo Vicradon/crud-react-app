@@ -1,43 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function InputBoxes({ prevID, addPost }) {
-
-  const [heading, setHeading] = useState('');
-  const [content, setContent] = useState('');
-  const [post, setPost] = useState({
-    heading: '',
-    content: '',
-    date: `${new Date().toDateString()}`,
-    id: prevID + 1
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    
-    name === 'heading' ?
-      setHeading(value) :
-      setContent(value);
-
-    setPost({
-      heading: heading,
-      content: content,
-      date: `${new Date().toDateString()}`,
-      id: prevID + 1
-    })
-  }
-
-  const clearForm = () => {
-    setHeading('');
-    setContent('');
-  }
-
-  const submitPost = () => {
-    if (heading && content) {
-      addPost(post);
-      clearForm();
-    }
-  }
-
+function InputBoxes({ heading, content, handleChange, submitPost }) {
   return (
     <div className="input-boxes">
       <h3 className="component-header">Hello, you'd have to type stuff</h3>

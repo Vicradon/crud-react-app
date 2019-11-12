@@ -5,6 +5,9 @@ import DisplaySection from './DisplaySection'
 
 class Main extends React.Component {
   state = {
+    heading: '',
+    content: '',
+    currentID: 2,
     posts: [
       {
         heading: "My first reasonable React app",
@@ -20,28 +23,61 @@ class Main extends React.Component {
       }
     ]
   }
-  
+  handleChange = (event) => {
+    const { name, value } = event.target;
+
+    name === 'heading' ?
+      this.setState({ heading: value }) :
+      this.setState({ content: value });
+  }
+  submitPost = () => {
+    if (this.state.heading && this.state.content) {
+      const newPost = {
+        heading: this.state.heading,
+        content: this.state.content,
+        date: `${new Date().toDateString()}`,
+        id: this.state.currentID + 1
+      }
+      this.addPost(newPost);
+      this.setState({ heading: '', content: '' });;
+    }
+  }
   addPost = (post) => {
-    this.setState({ posts: [...this.state.posts, post] })
+    this.setState({ 
+      posts: [...this.state.posts, post], 
+      currentID:+this.state.currentID+1 
+    })
   }
   handleEdit = (event) => {
     const id = +event.target.parentNode.parentNode.dataset.id;
-    const card = this.state.posts.filter(card => card.id === id);
+    const oldPost = this.state.posts.filter(post => post.id === id);
+    const {heading, content} = oldPost[0];
+    this.setState({
+      heading:heading,
+      content:content
+    });
+    const newPosts = this.state.posts.filter(post => post.id !== oldPost[0].id)
+    this.setState({posts: newPosts})
   }
   handleDelete = (event) => {
-    console.log(event.target.parentNode.parentNode)
+    const id = +event.target.parentNode.parentNode.dataset.id;
+    const oldPost = this.state.posts.filter(post => post.id === id);
+    const newPosts = this.state.posts.filter(post => post.id !== oldPost[0].id)
+    this.setState({posts: newPosts})
   }
   render() {
     return (
       <div className="main">
         <InputBoxes
-          prevID={this.state.posts[this.state.posts.length - 1].id}
-          addPost={this.addPost}
+          heading={this.state.heading}
+          content={this.state.content}
+          handleChange={this.handleChange}
+          submitPost={this.submitPost}
         />
-        <DisplaySection 
-          handleEdit = {this.handleEdit} 
-          handleDelete = {this.handleDelete} 
-          PostsData={this.state.posts} 
+        <DisplaySection
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+          PostsData={this.state.posts}
         />
       </div>
     );
