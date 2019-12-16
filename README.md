@@ -11,3 +11,6 @@ Contributions are welcome. Suggestions of what to contribute
 4. The app should be deployed to netlify. I'm struggling to deploy it there
 5. React router can be added to handle opening of posts. Posts should open on a new page with a route
 6. Posts which are too long should be trucated on the home page
+
+
+[Here's the project's link on codesandbox](https://codesandbox.io/s/crudify-brtpm)
