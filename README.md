@@ -1,6 +1,9 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/db80254e-0cb2-49e1-99a1-4f03b91ed51d/deploy-status)](https://app.netlify.com/sites/post-stuff/deploys)
+
 # CRUD React APP
 
 This simple app illustrates CRUD operations in pure react code.
+View a demo [here](https://post-stuff.netlify.com/)
 
 ## Contributions
 Contributions are welcome. Suggestions of what to contribute
