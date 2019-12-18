@@ -1,7 +1,8 @@
 {
   "name": "12thoctober2019",
   "version": "0.1.0",
-  "private": true,
+  "description": "A react app showing CRUD operations",
+  "keywords": [],
   "main":"src/index.js",
   "dependencies": {
     "react": "^16.10.2",
