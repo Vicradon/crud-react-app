@@ -16,3 +16,5 @@ Contributions are welcome. Suggestions of what to contribute
 
 
 [Here's the project's link on codesandbox](https://codesandbox.io/s/crudify-brtpm)
+
+I technically have to add these features myself.
